@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
     <id>Azs.Azurebridge.Admin</id>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <authors>Microsoft Corporation</authors>
     <owners>Microsoft Corporation</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
@@ -14,7 +14,7 @@
     <tags>AzureStack ResourceManager ARM PSModule</tags>
     <dependencies>
       <dependency id="Az.Accounts" version="[2.2.8]" />
-      <dependency id="Az.Resources" version="[0.11.0]" />
+      <dependency id="Az.Resources" version="[0.12.0]" />
     </dependencies>
   </metadata>
   <files>
@@ -24,9 +24,9 @@
     <!-- https://github.com/NuGet/Home/issues/3584 -->
     <file src="bin/Azs.Azurebridge.Admin.private.dll" target="bin" />
     <file src="bin\Azs.Azurebridge.Admin.private.deps.json" target="bin" />
-    <file src="internal\**\*.*" exclude="internal\readme.md" target="internal" />
-    <file src="custom\**\*.*" exclude="custom\readme.md;custom\**\*.cs" target="custom" />
-    <file src="docs\**\*.md" exclude="docs\readme.md" target="docs" />
+    <file src="internal\**\*.*" exclude="internal\README.md" target="internal" />
+    <file src="custom\**\*.*" exclude="custom\README.md;custom\**\*.cs" target="custom" />
+    <file src="docs\**\*.md" exclude="docs\README.md" target="docs" />
     <file src="exports\**\ProxyCmdletDefinitions.ps1" target="exports" />
     <file src="utils\**\*.*" target="utils" />
   </files>

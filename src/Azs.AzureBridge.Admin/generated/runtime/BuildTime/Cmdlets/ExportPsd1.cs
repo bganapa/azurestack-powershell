@@ -51,7 +51,7 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.BridgeAdmin.Runtime.PowerShell
                     throw new ArgumentException($"Custom folder '{CustomFolder}' does not exist");
                 }
 
-                string version = Convert.ToString(@"1.0.1");
+                string version = Convert.ToString(@"1.0.2");
                 // Validate the module version should be semantic version
                 // Following regex is official from https://semver.org/
                 Regex rx = new Regex(@"^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$", RegexOptions.Compiled);
@@ -82,9 +82,9 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.BridgeAdmin.Runtime.PowerShell
                 sb.AppendLine($@"{Indent}DotNetFrameworkVersion = '4.7.2'");
 
                 // RequiredModules
-                if (!IsUndefined("undefined"))
+                if (!IsUndefined("@{ModuleName = 'Az.Accounts'; ModuleVersion = '2.2.8'}, @{ModuleName = 'Az.Resources'; ModuleVersion = '0.12.0'}"))
                 {
-                    sb.AppendLine($@"{Indent}RequiredModules = @({"undefined"})");
+                    sb.AppendLine($@"{Indent}RequiredModules = @({"@{ModuleName = 'Az.Accounts'; ModuleVersion = '2.2.8'}, @{ModuleName = 'Az.Resources'; ModuleVersion = '0.12.0'}"})");
                 }
 
                 // RequiredAssemblies
@@ -95,7 +95,6 @@ namespace Microsoft.Azure.PowerShell.Cmdlets.BridgeAdmin.Runtime.PowerShell
                 else
                 {
                     sb.AppendLine($@"{Indent}RequiredAssemblies = '{"./bin/Azs.Azurebridge.Admin.private.dll"}'");
-      sb.AppendLine($@"{Indent}RequiredModules = @(@{{ModuleName = 'Az.Accounts'; RequiredVersion = '2.2.8'; }}, @{{ModuleName = 'Az.Resources'; RequiredVersion = '0.11.0'; }})");
                 }
 
                 // NestedModules
